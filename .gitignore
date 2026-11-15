@@ -107,3 +107,17 @@ InitTestScene*.unity*
 
 # Auto-generated cache in Assets folder
 /[Aa]ssets/[Ss]ceneDependencyCache*
+
+
+# Local configuration and RabbitMQ credentials (usernames, passwords, vhosts)
+appsettings.Development.json
+appsettings.Local.json
+secrets.json
+.env
+*.env
+
+# Local RabbitMQ Docker persistence & logs (if running RabbitMQ via Docker Compose)
+rabbitmq_data/
+rabbitmq/data/
+rabbitmq/log/
+*.pid

@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "mq5a76rLIhs=",
+  "success": true,
+  "projectFilePath": "C:\\MData\\github\\eda\\RabbitMQ1\\HelloWorld\\HelloWorldPublisher\\HelloWorldPublisher.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\massi\\.nuget\\packages\\amqpnetlite.core\\2.5.4\\amqpnetlite.core.2.5.4.nupkg.sha512",
+    "C:\\Users\\massi\\.nuget\\packages\\amqpnetlite.websockets\\2.5.2\\amqpnetlite.websockets.2.5.2.nupkg.sha512",
+    "C:\\Users\\massi\\.nuget\\packages\\rabbitmq.amqp.client\\1.4.1\\rabbitmq.amqp.client.1.4.1.nupkg.sha512"
+  ],
+  "logs": []
+}
