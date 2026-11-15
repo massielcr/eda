@@ -11,14 +11,13 @@ public class Send
 
         await SendMessageAsync(
             message: message,
-            queueName: "workqueue",
+            queueName: "task_queue",
             hostName: "localhost");
     }
 
     private static async Task SendMessageAsync(string message, string queueName, string hostName)
     {
         var factory = new ConnectionFactory() { HostName = hostName };
-
         await using IConnection connection = await factory.CreateConnectionAsync();
         await using IChannel channel = await connection.CreateChannelAsync();
 
@@ -31,9 +30,16 @@ public class Send
 
         byte[] body = Encoding.UTF8.GetBytes(message);
 
+        BasicProperties properties = new()
+        {
+            Persistent = true
+        };
+
         await channel.BasicPublishAsync(
             exchange: string.Empty, 
             routingKey: queueName, 
+            mandatory: true,
+            basicProperties: properties,
             body: body);
 
         Console.WriteLine($" [x] Sent {message}");
