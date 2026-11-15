@@ -3,4 +3,6 @@
     <Project Path="HelloReceive/HelloReceive.csproj" />
     <Project Path="HelloSend/HelloSend.csproj" />
   </Folder>
+  <Project Path="WorkQueuesNewTask/WorkQueuesNewTask.csproj" />
+  <Project Path="WorkQueuesWorker/WorkQueuesWorker.csproj" />
 </Solution>
