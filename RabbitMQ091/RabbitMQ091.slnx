@@ -1,0 +1,6 @@
+<Solution>
+  <Folder Name="/Hello World/">
+    <Project Path="HelloReceive/HelloReceive.csproj" />
+    <Project Path="HelloSend/HelloSend.csproj" />
+  </Folder>
+</Solution>
