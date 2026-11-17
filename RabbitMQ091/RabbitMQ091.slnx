@@ -11,10 +11,12 @@
     <Project Path="RoutingEmitLogDirect/RoutingEmitLogDirect.csproj" />
     <Project Path="RoutingReceiveLogsDirect/RoutingReceiveLogsDirect.csproj" />
   </Folder>
+  <Folder Name="/Topics/">
+    <Project Path="TopicEmitLogs/TopicEmitLogs.csproj" />
+    <Project Path="TopicReceiveLogs/TopicReceiveLogs.csproj" />
+  </Folder>
   <Folder Name="/Work Queues/">
     <Project Path="WorkQueuesNewTask/WorkQueuesNewTask.csproj" />
     <Project Path="WorkQueuesWorker/WorkQueuesWorker.csproj" />
   </Folder>
-  <Project Path="TopicEmitLogs/TopicEmitLogs.csproj" />
-  <Project Path="TopicReceiveLogs/TopicReceiveLogs.csproj" />
 </Solution>
