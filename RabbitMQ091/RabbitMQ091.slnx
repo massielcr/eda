@@ -3,10 +3,14 @@
     <Project Path="HelloReceive/HelloReceive.csproj" />
     <Project Path="HelloSend/HelloSend.csproj" />
   </Folder>
+  <Folder Name="/Publish-Subscribe/">
+    <Project Path="PublishSubscribeEmitLogs/PublishSubscribeEmitLogs.csproj" />
+    <Project Path="PublishSubscribeReceiveLogs/PublishSubscribeReceiveLogs.csproj" />
+  </Folder>
   <Folder Name="/Work Queues/">
     <Project Path="WorkQueuesNewTask/WorkQueuesNewTask.csproj" />
     <Project Path="WorkQueuesWorker/WorkQueuesWorker.csproj" />
   </Folder>
-  <Project Path="PublishSubscribeEmitLogs/PublishSubscribeEmitLogs.csproj" />
-  <Project Path="PublishSubscribeReceiveLogs/PublishSubscribeReceiveLogs.csproj" />
+  <Project Path="RoutingEmitLogDirect/RoutingEmitLogDirect.csproj" />
+  <Project Path="RoutingReceiveLogsDirect/RoutingReceiveLogsDirect.csproj" />
 </Solution>
