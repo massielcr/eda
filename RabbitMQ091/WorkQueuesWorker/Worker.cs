@@ -7,7 +7,7 @@ public static class Worker
 {
     public static async Task Main(string[] args)
     {
-        Console.WriteLine("Consumming...");
+        Console.WriteLine("Consuming...");
 
         await ConsumeAsync(
             queueName: "task_queue",

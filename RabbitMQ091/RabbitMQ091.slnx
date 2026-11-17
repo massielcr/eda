@@ -7,4 +7,6 @@
     <Project Path="WorkQueuesNewTask/WorkQueuesNewTask.csproj" />
     <Project Path="WorkQueuesWorker/WorkQueuesWorker.csproj" />
   </Folder>
+  <Project Path="PublishSubscribeEmitLogs/PublishSubscribeEmitLogs.csproj" />
+  <Project Path="PublishSubscribeReceiveLogs/PublishSubscribeReceiveLogs.csproj" />
 </Solution>
