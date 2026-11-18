@@ -19,4 +19,6 @@
     <Project Path="WorkQueuesNewTask/WorkQueuesNewTask.csproj" />
     <Project Path="WorkQueuesWorker/WorkQueuesWorker.csproj" />
   </Folder>
+  <Project Path="RPCClient/RPCClient.csproj" />
+  <Project Path="RPCServer/RPCServer.csproj" />
 </Solution>
