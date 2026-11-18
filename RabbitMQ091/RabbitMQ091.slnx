@@ -11,6 +11,10 @@
     <Project Path="RoutingEmitLogDirect/RoutingEmitLogDirect.csproj" />
     <Project Path="RoutingReceiveLogsDirect/RoutingReceiveLogsDirect.csproj" />
   </Folder>
+  <Folder Name="/RPC/">
+    <Project Path="RPCClient/RPCClient.csproj" />
+    <Project Path="RPCServer/RPCServer.csproj" />
+  </Folder>
   <Folder Name="/Topics/">
     <Project Path="TopicEmitLogs/TopicEmitLogs.csproj" />
     <Project Path="TopicReceiveLogs/TopicReceiveLogs.csproj" />
@@ -19,6 +23,4 @@
     <Project Path="WorkQueuesNewTask/WorkQueuesNewTask.csproj" />
     <Project Path="WorkQueuesWorker/WorkQueuesWorker.csproj" />
   </Folder>
-  <Project Path="RPCClient/RPCClient.csproj" />
-  <Project Path="RPCServer/RPCServer.csproj" />
 </Solution>
