@@ -23,4 +23,5 @@
     <Project Path="WorkQueuesNewTask/WorkQueuesNewTask.csproj" />
     <Project Path="WorkQueuesWorker/WorkQueuesWorker.csproj" />
   </Folder>
+  <Project Path="PublisherConfirms/PublisherConfirms.csproj" />
 </Solution>
