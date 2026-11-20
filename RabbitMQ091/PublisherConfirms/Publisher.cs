@@ -37,6 +37,7 @@ namespace PublisherConfirms
             _queueName = queue.QueueName;
         }
 
+
         public async Task SendIndviduallyAsync(string message)
         {
             if (_channel is null || _queueName is null)
@@ -64,7 +65,6 @@ namespace PublisherConfirms
             Console.WriteLine($"{DateTime.Now} [INFO] published message individually");
         }
 
-
         public async Task SendInBatchAsync(string[] messages)
         {
 
@@ -74,6 +74,7 @@ namespace PublisherConfirms
         {
 
         }
+
 
         public async ValueTask DisposeAsync()
         {
