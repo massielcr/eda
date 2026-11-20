@@ -6,20 +6,24 @@ namespace PublisherConfirms
     public class Publisher : IAsyncDisposable
     {
         const ushort MAX_OUTSTANDING_CONFIRMS = 256;
-        const int MESSAGE_COUNT = 50;
 
         private readonly IConnectionFactory _connectionFactory;
 
         private IConnection? _connection;
         private IChannel? _channel;
 
+        private string? _queueName;
+
         public Publisher(string hostName)
         {
             _connectionFactory = new ConnectionFactory() { HostName = hostName };
         }
 
-        public async Task SendIndviduallyAsync(string message)
+        public async Task InitializedAsync()
         {
+            if (_connection is not null && _channel is not null && _queueName is not null)
+                return;
+
             _connection = await _connectionFactory.CreateConnectionAsync();
 
             CreateChannelOptions channelOptions = new(
@@ -29,33 +33,47 @@ namespace PublisherConfirms
 
             _channel = await _connection.CreateChannelAsync(channelOptions);
 
+            QueueDeclareOk queue = await _channel.QueueDeclareAsync();
+            _queueName = queue.QueueName;
+        }
+
+        public async Task SendIndviduallyAsync(string message)
+        {
+            if (_channel is null || _queueName is null)
+                throw new InvalidOperationException("Call InitializedAsync() before publishing.");
+
+
             BasicProperties properties = new()
             {
                 Persistent = true
-            };
+            };      
 
-            QueueDeclareOk queue = await _channel.QueueDeclareAsync();
-            string queueName = queue.QueueName;            
+            Console.WriteLine($"{DateTime.Now} [INFO] publishing '{message}' message and handling confirms per-message");
 
-            Console.WriteLine($"{DateTime.Now} [INFO] publishing {MESSAGE_COUNT:N0} messages and handling confirms per-message");
-
-            for (int i = 0; i < MESSAGE_COUNT; i++)
+            try
             {
-                try
-                {
-                    byte[] body = Encoding.UTF8.GetBytes($"{message} - {i}");
+                byte[] body = Encoding.UTF8.GetBytes(message);
 
-                    await _channel.BasicPublishAsync(exchange: string.Empty, routingKey: queueName, body: body, basicProperties: properties, mandatory: true);
-                }
-                catch (Exception ex)
-                {
-                    Console.Error.WriteLine($"{DateTime.Now} [ERROR] saw nack or return, ex: {ex}");
-                }
+                await _channel.BasicPublishAsync(exchange: string.Empty, routingKey: _queueName, body: body, basicProperties: properties, mandatory: true);
+            }
+            catch (Exception ex)
+            {
+                Console.Error.WriteLine($"{DateTime.Now} [ERROR] saw nack or return, ex: {ex}");
             }
 
-            Console.WriteLine($"{DateTime.Now} [INFO] published {MESSAGE_COUNT:N0} messages individually");
+            Console.WriteLine($"{DateTime.Now} [INFO] published message individually");
         }
 
+
+        public async Task SendInBatchAsync(string[] messages)
+        {
+
+        }
+
+        public async Task HandlePublishConfirmsAsync(string[] messages)
+        {
+
+        }
 
         public async ValueTask DisposeAsync()
         {
