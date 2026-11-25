@@ -12,11 +12,13 @@ ConnectionSettings settings = ConnectionSettingsBuilder.Create()
     .Build();
 
 IEnvironment environment = AmqpEnvironment.Create(settings);
+
 IConnection connection = await environment.CreateConnectionAsync();
 
 try
 {
     IManagement management = connection.Management();
+
     IQueueSpecification queueSpecification = management.Queue("hello").Type(QueueType.QUORUM);
     await queueSpecification.DeclareAsync();
 
@@ -26,7 +28,9 @@ try
     {
         const string body = "Hello World!";
         var message = new AmqpMessage(Encoding.UTF8.GetBytes(body));
+
         PublishResult publishResult = await publisher.PublishAsync(message);
+
         if (publishResult.Outcome.State != OutcomeState.Accepted)
         {
             Console.Error.WriteLine($"Unexpected publish outcome: {publishResult.Outcome.State}");

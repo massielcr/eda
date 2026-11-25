@@ -12,11 +12,13 @@ ConnectionSettings settings = ConnectionSettingsBuilder.Create()
     .Build();
 
 IEnvironment environment = AmqpEnvironment.Create(settings);
+
 IConnection connection = await environment.CreateConnectionAsync();
 
 try
 {
     IManagement management = connection.Management();
+
     IQueueSpecification queueSpecification = management.Queue("hello").Type(QueueType.QUORUM);
     await queueSpecification.DeclareAsync();
 
