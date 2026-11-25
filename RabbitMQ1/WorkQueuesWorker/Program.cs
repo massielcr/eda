@@ -42,7 +42,15 @@ public class Program
 
                     Console.WriteLine($" [x] Received '{body}'");
 
-                    ctx.Accept();
+                    try
+                    {
+                        DoWork(body);
+                    }
+                    finally
+                    {
+                        Console.WriteLine(" [x] Done");
+                        ctx.Accept();
+                    }
 
                     return Task.CompletedTask;
                 })
@@ -69,5 +77,11 @@ public class Program
             await connection.CloseAsync();
             await environment.CloseAsync();
         }
+    }
+
+    static void DoWork(string task)
+    {
+        int dots = task.ToCharArray().Count(ch => ch == '.');
+        Thread.Sleep(dots * 1000);
     }
 }
