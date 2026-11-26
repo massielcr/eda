@@ -7,6 +7,10 @@
     <Project Path="PublishSubscribeEmitLog/PublishSubscribeEmitLog.csproj" />
     <Project Path="PublishSubscribeReceiveLogs/PublishSubscribeReceiveLogs.csproj" />
   </Folder>
+  <Folder Name="/Routing/">
+    <Project Path="RoutingEmitLogDirect/RoutingEmitLogDirect.csproj" />
+    <Project Path="RoutingReceiveLogsDirect/RoutingReceiveLogsDirect.csproj" />
+  </Folder>
   <Folder Name="/Work Queues/">
     <Project Path="WorkQueuesNewTask/WorkQueuesNewTask.csproj" />
     <Project Path="WorkQueuesWorker/WorkQueuesWorker.csproj" />
